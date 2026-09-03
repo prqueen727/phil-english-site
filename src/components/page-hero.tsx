@@ -52,7 +52,7 @@ export default function PageHero({
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-brand-900/90 via-brand-900/40 to-transparent" />
       <div className="relative mx-auto w-full max-w-6xl px-6 pb-14 pt-24">
-        <h1 className="max-w-2xl text-4xl font-medium text-ivory-50 md:text-5xl">
+        <h1 className="max-w-2xl whitespace-pre-line text-4xl font-medium text-ivory-50 md:text-5xl">
           {activeTitle}
         </h1>
         {activeSubtitle && (
