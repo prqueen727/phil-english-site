@@ -15,6 +15,11 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+// Every page reads live content from the database (via SiteHeader/SiteFooter
+// and the pages themselves), and that content changes through the admin
+// panel without a redeploy — so render per-request instead of at build time.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: {
     default: "Phil Korean Medicine Hospital",
