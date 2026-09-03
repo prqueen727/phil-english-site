@@ -4,7 +4,7 @@ import PageHero from "@/components/page-hero";
 import { parseBlocks, parseHeroSlides, parseStringList } from "@/lib/content-types";
 
 export default async function HomePage() {
-  const [hero, home, treatments, clinics, contact] = await Promise.all([
+  const [hero, home, treatments, clinics, contact, doctorCount] = await Promise.all([
     prisma.pageHero.findUnique({ where: { slug: "home" } }),
     prisma.homeContent.findUnique({ where: { id: 1 } }),
     prisma.treatment.findMany({
@@ -16,6 +16,7 @@ export default async function HomePage() {
       orderBy: { order: "asc" },
     }),
     prisma.contactInfo.findUnique({ where: { id: 1 } }),
+    prisma.doctor.count(),
   ]);
 
   const highlights = parseBlocks(home?.highlights ?? "[]");
@@ -160,17 +161,74 @@ export default async function HomePage() {
         </section>
       )}
 
-      <section className="mx-auto max-w-4xl px-6 py-20 text-center">
-        <h2 className="text-3xl font-medium text-brand-900">{home?.ctaTitle}</h2>
-        <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-brand-700">
-          {home?.ctaBody}
-        </p>
-        <Link
-          href="/contact"
-          className="mt-8 inline-block rounded-full bg-brand-700 px-8 py-3 text-sm font-medium text-ivory-50 hover:bg-brand-800"
-        >
-          Contact Us
-        </Link>
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="grid gap-8 md:grid-cols-2 md:items-stretch">
+          <div className="rounded-3xl border-2 border-brand-700 bg-ivory-50 p-8 sm:p-10">
+            <p className="text-xl text-brand-800">Available</p>
+            <p className="text-3xl font-semibold text-brand-900">365 days a year</p>
+
+            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-1 border-t border-brand-100 pt-5 text-sm text-brand-700">
+              <span>Korean–Western Medicine Collaborative Care</span>
+              <span className="text-brand-300">|</span>
+              <span>{doctorCount} Professional Medical Staff</span>
+            </div>
+
+            <div className="mt-6 flex items-start gap-4 border-t border-brand-100 pt-6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="mt-0.5 h-9 w-9 shrink-0 text-gold-600">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+              <dl className="space-y-1.5 text-sm text-brand-800">
+                <div className="flex gap-3">
+                  <dt className="w-16 shrink-0 font-medium">Mon–Fri</dt>
+                  <dd>9:00 – 20:00 <span className="text-brand-500">(night clinic available)</span></dd>
+                </div>
+                <div className="flex gap-3">
+                  <dt className="w-16 shrink-0 font-medium">Sat–Sun</dt>
+                  <dd>9:00 – 18:00</dd>
+                </div>
+                <div className="flex gap-3">
+                  <dt className="w-16 shrink-0 font-medium">Lunch</dt>
+                  <dd>13:00 – 14:00</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <div className="rounded-3xl border-2 border-brand-700 bg-ivory-50 p-8 sm:p-10">
+            <h2 className="text-2xl font-medium text-brand-900">{home?.ctaTitle}</h2>
+            <p className="mt-3 text-base leading-relaxed text-brand-700">{home?.ctaBody}</p>
+
+            {(contact?.email || contact?.phone) && (
+              <div className="mt-6 space-y-3 border-t border-brand-100 pt-6">
+                {contact?.email && (
+                  <div className="flex items-center gap-2 text-sm font-medium text-brand-800">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" className="h-5 w-5 shrink-0 text-gold-600">
+                      <rect x="3" y="5" width="18" height="14" rx="2" />
+                      <path d="m4 7 8 6 8-6" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>{contact.email}</span>
+                  </div>
+                )}
+                {contact?.phone && (
+                  <div className="flex items-center gap-2 text-sm font-medium text-brand-800">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" className="h-5 w-5 shrink-0 text-gold-600">
+                      <path d="M6.6 10.8a15.3 15.3 0 0 0 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.37 11.3 11.3 0 0 0 3.5.56 1.5 1.5 0 0 1 1.5 1.5V20.5a1.5 1.5 0 0 1-1.5 1.5A18 18 0 0 1 2 4a1.5 1.5 0 0 1 1.5-1.5H6.9a1.5 1.5 0 0 1 1.5 1.5 11.3 11.3 0 0 0 .56 3.5 1.5 1.5 0 0 1-.37 1.5Z" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span>{contact.phone}</span>
+                  </div>
+                )}
+              </div>
+            )}
+
+            <Link
+              href="/contact"
+              className="mt-8 inline-block rounded-full bg-brand-700 px-8 py-3 text-sm font-medium text-ivory-50 hover:bg-brand-800"
+            >
+              Contact Us
+            </Link>
+          </div>
+        </div>
       </section>
     </>
   );

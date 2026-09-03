@@ -1,6 +1,5 @@
 import { prisma } from "@/lib/prisma";
 import PageHero from "@/components/page-hero";
-import ContactForm from "@/components/contact-form";
 import { parseStringList } from "@/lib/content-types";
 import type { Metadata } from "next";
 
@@ -20,7 +19,7 @@ export default async function ContactPage() {
         images={parseStringList(hero?.imageUrls ?? "[]")}
       />
 
-      <section className="mx-auto grid max-w-6xl gap-14 px-6 py-20 md:grid-cols-2">
+      <section className="mx-auto max-w-2xl px-6 py-20">
         <div>
           <h2 className="text-2xl font-medium text-brand-900">Get in Touch</h2>
           <dl className="mt-6 space-y-4 text-sm text-brand-700">
@@ -65,14 +64,6 @@ export default async function ContactPage() {
               />
             </div>
           )}
-        </div>
-
-        <div>
-          <h2 className="text-2xl font-medium text-brand-900">Send a Message</h2>
-          <p className="mt-2 text-sm text-brand-600">
-            Fill out the form below and our team will get back to you.
-          </p>
-          <ContactForm />
         </div>
       </section>
     </>
