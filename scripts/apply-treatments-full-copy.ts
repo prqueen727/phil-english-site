@@ -144,6 +144,24 @@ async function main() {
     },
   });
 
+  await prisma.treatment.update({
+    where: { slug: "pharmacopuncture" },
+    data: {
+      faq: JSON.stringify([
+        {
+          question: "Are the herbs safe?",
+          answer:
+            "Herbal formulas are prepared individually for each patient based on a practitioner's diagnosis, using quality-checked ingredients. Please inform your practitioner of any allergies, current medications, or health conditions so your formula can be safely tailored to you.",
+        },
+        {
+          question: "How is the safety of the preparation process ensured?",
+          answer:
+            "Preparation facilities are certified under the Ministry of Health and Welfare's evaluation system, which includes assessment of sterile-handling equipment specific to pharmacopuncture preparation.",
+        },
+      ]),
+    },
+  });
+
   console.log("Full treatment copy applied.");
 }
 
