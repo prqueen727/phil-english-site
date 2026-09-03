@@ -1,0 +1,133 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model AdminUser {
+  id           String @id @default(cuid())
+  email        String @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+// One row per public page — drives every hero banner site-wide so admins
+// can swap the headline/subtitle/image without touching code.
+model PageHero {
+  id        String @id @default(cuid())
+  slug      String @unique // "home" | "about" | "greeting" | "treatments" | "clinics" | "doctors" | "contact"
+  title     String
+  subtitle  String @default("")
+  imageUrls String @default("[]") // JSON string[] — 1 image = static, 2+ = rotating
+  slides    String @default("[]") // JSON: [{ title, subtitle }] — optional per-slide caption override, aligned by index to imageUrls. Falls back to title/subtitle above when empty or missing for a given index.
+}
+
+model HomeContent {
+  id             Int    @id @default(1)
+  introEyebrow   String @default("")
+  introTitle     String @default("")
+  introBody      String @default("")
+  introImageUrl  String @default("")
+  highlights     String @default("[]") // JSON: [{ title, body }]
+  ctaTitle       String @default("")
+  ctaBody        String @default("")
+}
+
+model AboutContent {
+  id            Int    @id @default(1)
+  title         String @default("")
+  body          String @default("")
+  imageUrl      String @default("")
+  highlights    String @default("[]") // JSON: [{ title, body }] — differentiator cards under the intro
+  missionBlocks String @default("[]") // JSON: [{ title, body }]
+  missionTitle    String @default("") // e.g. "Our Mission"
+  missionSubtitle String @default("") // e.g. "Global Standard Phil Hospital of Korean Medicine"
+  systemTitle     String @default("") // e.g. "Our System"
+  systemSubtitle  String @default("") // e.g. "A 365-Day Clinic System — Open Weekends and Holidays"
+  systemIntro     String @default("")
+  systemBlocks    String @default("[]") // JSON: [{ title, body }]
+}
+
+model GreetingContent {
+  id             Int    @id @default(1)
+  title          String @default("")
+  body           String @default("")
+  imageUrl       String @default("")
+  directorName   String @default("")
+  directorTitle  String @default("")
+}
+
+model Treatment {
+  id             String  @id @default(cuid())
+  slug           String  @unique
+  name           String
+  summary        String  @default("")
+  imageUrl       String  @default("")
+  order          Int     @default(0)
+  published      Boolean @default(true)
+  principleBlocks String @default("[]") // JSON: [{ title, body }]
+  processSteps    String @default("[]") // JSON: [{ title, body }]
+  compareLeftTitle  String @default("")
+  compareRightTitle String @default("")
+  compareLeft       String @default("[]") // JSON: string[]
+  compareRight      String @default("[]") // JSON: string[]
+  faq               String @default("[]") // JSON: [{ question, answer }]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Clinic {
+  id             String  @id @default(cuid())
+  slug           String  @unique
+  name           String
+  summary        String  @default("")
+  imageUrl       String  @default("")
+  order          Int     @default(0)
+  published      Boolean @default(true)
+  principleBlocks String @default("[]") // JSON: [{ title, body }]
+  processSteps    String @default("[]") // JSON: [{ title, body }]
+  compareLeftTitle  String @default("")
+  compareRightTitle String @default("")
+  compareLeft       String @default("[]") // JSON: string[]
+  compareRight      String @default("[]") // JSON: string[]
+  faq               String @default("[]") // JSON: [{ question, answer }]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Doctor {
+  id       String @id @default(cuid())
+  name     String
+  title    String @default("")
+  bio      String @default("")
+  photoUrl String @default("")
+  order    Int    @default(0)
+}
+
+model ContactInfo {
+  id           Int    @id @default(1)
+  address      String @default("")
+  phone        String @default("")
+  email        String @default("")
+  hoursText    String @default("")
+  directionsText String @default("") // e.g. subway/transit directions, shown alongside address
+  mapEmbedUrl  String @default("")
+  inquiryToEmail String @default("")
+}
+
+// Site-wide branding (id is always 1 — single row, like HomeContent/ContactInfo).
+model SiteSettings {
+  id      Int    @id @default(1)
+  logoUrl String @default("")
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  url       String
+  alt       String   @default("")
+  createdAt DateTime @default(now())
+}
