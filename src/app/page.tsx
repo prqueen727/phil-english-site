@@ -142,6 +142,51 @@ export default async function HomePage() {
         </section>
       )}
 
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="grid gap-12 md:grid-cols-2 md:items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/uploads/cream-product-h-c.png"
+            alt="Phil Korean Medicine Cream+ H and C tubes"
+            className="mx-auto w-full max-w-sm object-contain"
+          />
+          <div>
+            <p className="mb-3 text-sm font-medium uppercase tracking-wide text-gold-600">
+              Phil Korean Medicine Cream
+            </p>
+            <h2 className="text-3xl font-medium text-brand-900">
+              Health, Captured in a Cream
+            </h2>
+            <p className="mt-5 max-w-prose text-base leading-relaxed text-brand-700">
+              A Korean Medicine Cream made with real herbal extracts — developed with the direct
+              involvement of a Board-Certified Specialist in Korean Rehabilitation Medicine.
+              Available in a warming H (HOT) type and a cooling C (COOL) type.
+            </p>
+            <Link
+              href="/cream"
+              className="mt-6 inline-block rounded-full bg-brand-700 px-6 py-2.5 text-sm font-medium text-ivory-50 hover:bg-brand-800"
+            >
+              Learn More
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <h2 className="text-3xl font-medium text-brand-900">Caring for International Patients</h2>
+        <p className="mt-3 max-w-prose text-base leading-relaxed text-brand-700">
+          See how Phil Hospital of Korean Medicine treats patients from around the world.
+        </p>
+        <div className="mt-8 overflow-hidden rounded-2xl border border-brand-100">
+          <video
+            src="/uploads/chuna-treatment-intro.mp4"
+            className="w-full"
+            controls
+            preload="metadata"
+          />
+        </div>
+      </section>
+
       {contact?.mapEmbedUrl && (
         <section className="mx-auto max-w-6xl px-6 py-20">
           <div className="flex items-end justify-between">

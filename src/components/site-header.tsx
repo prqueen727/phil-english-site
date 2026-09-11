@@ -79,6 +79,9 @@ export default async function SiteHeader() {
           <NavDropdown label="About" items={aboutItems} />
           <NavDropdown label="Treatments" items={treatmentItems} viewAllHref="/treatments" />
           <NavDropdown label="Clinics" items={clinicItems} viewAllHref="/clinics" />
+          <Link href="/cream" className="text-sm font-medium text-brand-700 transition-colors hover:text-brand-900">
+            Phil Korean Medicine Cream
+          </Link>
           <Link href="/doctors" className="text-sm font-medium text-brand-700 transition-colors hover:text-brand-900">
             Doctors
           </Link>
@@ -100,6 +103,7 @@ export default async function SiteHeader() {
               { label: "Clinics", items: clinicItems, viewAllHref: "/clinics" },
             ]}
             simpleLinks={[
+              { href: "/cream", label: "Phil Korean Medicine Cream" },
               { href: "/doctors", label: "Doctors" },
               { href: "/contact", label: "Contact" },
             ]}
