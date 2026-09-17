@@ -14,24 +14,24 @@ const ingredients = [
 const lineup = [
   {
     name: "Phil Korean Medicine Cream+ C",
-    type: "COOL Gel Type, 80ml",
+    type: "COOL Gel Type, 80 mL",
   },
   {
     name: "Phil Korean Medicine Cream+ H",
-    type: "HOT Cream Type, 80ml",
+    type: "HOT Cream Type, 80 mL",
   },
 ];
 
 const faq = [
   {
-    question: "Why did you choose a Korean medicine cream for the healthcare industry?",
+    question: "What inspired you to develop a Korean medicine cream for use in healthcare?",
     answer:
-      "In practice, we frequently meet patients with spinal or joint discomfort. Many of them find it burdensome to visit the hospital often, so they rely on medicated patches instead — but in the summer heat, sweating and increased activity make it uncomfortable to keep a patch on for long periods. Looking at this, we asked ourselves how more people could use something comfortably for longer. That question led us to create a cream-type alternative to the patch, infused with a variety of herbal medicine ingredients.",
+      "In our practice, we frequently see patients with spinal or joint discomfort. Many of them find frequent hospital visits burdensome, so they rely on medicated patches instead — but in the summer heat, sweating and increased activity make it uncomfortable to keep a patch on for long periods. This prompted us to consider how we could make a product that more people could use comfortably for longer. That question led us to create a cream alternative to medicated patches, infused with a variety of herbal medicine ingredients.",
   },
   {
     question: "When should I apply Phil Korean Medicine Cream?",
     answer:
-      "It's best to use the warm H (HOT) type before exercise, and the C (COOL) type after exercise. While it's fine to use either based on personal preference, we generally recommend the H (HOT) type before exercise and the C (COOL) type afterward.",
+      "While it's fine to use either based on personal preference, we generally recommend the H (HOT) type before exercise and the C (COOL) type after exercise.",
   },
   {
     question: "What is the correct way to use Phil Korean Medicine Cream?",
@@ -99,8 +99,8 @@ export default function CreamPage() {
           </h2>
           <p className="mt-4 max-w-prose text-base leading-relaxed text-brand-700">
             Phil Korean Medicine Cream was developed with the direct involvement of Dr. Yoon
-            Je-pil, Board-Certified Specialist in Korean Rehabilitation Medicine and Ph.D. in
-            Korean Medicine.
+            Je-pil, a board-certified specialist in Korean Rehabilitation Medicine who holds a
+            Ph.D. in Korean Medicine.
           </p>
         </div>
 

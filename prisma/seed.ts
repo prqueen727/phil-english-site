@@ -9,23 +9,19 @@ const heroes = [
     title: "Traditional Korean Medicine, Modern Care",
     subtitle:
       "Phil Korean Medicine Hospital blends time-tested Korean medicine with modern clinical standards to support your health and recovery.",
-    imageUrls: [
-      "/placeholders/hero-home.svg",
-      "/placeholders/hero-home-2.svg",
-      "/placeholders/hero-home-3.svg",
-    ],
+    imageUrls: ["/uploads/hero-home-1.jpg", "/uploads/hero-home-2.jpg", "/uploads/hero-home-3.jpg"],
   },
   {
     slug: "about",
     title: "About Phil Korean Medicine Hospital",
     subtitle: "Our philosophy, our team, and our approach to care.",
-    imageUrls: ["/placeholders/hero-about.svg"],
+    imageUrls: ["/uploads/about-hero.jpg"],
   },
   {
     slug: "greeting",
     title: "Director's Greeting",
     subtitle: "A welcome message from our medical director.",
-    imageUrls: ["/placeholders/hero-about.svg"],
+    imageUrls: ["/uploads/greeting-hero.jpg"],
   },
   {
     slug: "treatments",
@@ -43,13 +39,13 @@ const heroes = [
     slug: "doctors",
     title: "Our Medical Team",
     subtitle: "Experienced practitioners dedicated to your wellbeing.",
-    imageUrls: ["/placeholders/hero-doctors.svg"],
+    imageUrls: ["/uploads/doctors-team.jpg"],
   },
   {
     slug: "contact",
     title: "Contact Us",
     subtitle: "Send us a message and our team will get back to you.",
-    imageUrls: ["/placeholders/hero-contact.svg"],
+    imageUrls: ["/uploads/contact-hero.jpg"],
   },
 ];
 
@@ -58,397 +54,387 @@ const treatments = [
     slug: "acupuncture",
     name: "Acupuncture",
     summary:
-      "Fine needles are placed at specific points on the body to relieve pain and restore balance.",
-    imageUrl: "/placeholders/acupuncture.svg",
+      "Fine needles inserted at specific points relieve pain, reduce inflammation, and restore balance in nerve and muscle function.",
+    imageUrl: "/uploads/acupuncture.jpg",
     order: 1,
     principleBlocks: [
       {
-        title: "Restoring the Flow of Qi",
-        body: "In traditional Korean medicine, acupuncture is understood to stimulate specific points along the body's meridians, helping to restore the smooth flow of Qi (vital energy) and blood. [DRAFT — general Korean medicine background, please review and replace with your clinic's own description]",
-      },
-      {
-        title: "Modern Clinical Perspective",
-        body: "From a modern clinical standpoint, acupuncture needling is associated with local stimulation of nerves, muscles, and connective tissue, which may trigger the release of natural pain-relieving substances in the body. [DRAFT — please verify against current clinical guidance before publishing]",
+        title: "How It Works",
+        body: "Acupuncture involves inserting fine needles into specific points on the body to relieve pain, reduce inflammation, and restore balance in nerve and muscle function. It improves blood circulation and stimulates the body's natural healing response, helping to speed recovery.",
       },
     ],
-    processSteps: [
-      { title: "Consultation", body: "Your practitioner reviews your health history and current symptoms to plan a treatment approach." },
-      { title: "Point Selection", body: "Needle points are chosen based on your specific condition and treatment goals." },
-      { title: "Treatment", body: "Sterile, single-use needles are inserted at the selected points and left in place for a set period." },
-      { title: "Aftercare", body: "You receive guidance on rest, hydration, and any follow-up sessions." },
-    ],
+    processSteps: [],
     compareLeftTitle: "Acupuncture",
     compareRightTitle: "Pharmacopuncture",
     compareLeft: ["Uses fine filiform needles only", "Targets meridian points broadly", "Long-standing traditional technique"],
-    compareRight: ["Injects diluted herbal extract via needle", "Combines herbal and acupuncture effects", "Often used for more localized, concentrated action"],
+    compareRight: ["Injects diluted herbal extract using a needle", "Combines the effects of herbal medicine and acupuncture", "Often used for more localized, concentrated action"],
     faq: [
-      { question: "Is acupuncture painful?", answer: "Most patients feel only a light sensation at the insertion point. [DRAFT — confirm wording with your clinical team]" },
-      { question: "How many sessions will I need?", answer: "This varies by condition; your practitioner will discuss a recommended plan during your consultation. [DRAFT]" },
-    ],
-  },
-  {
-    slug: "pharmacopuncture",
-    name: "Pharmacopuncture",
-    summary:
-      "Purified herbal extracts are injected at acupuncture points, combining herbal medicine with acupuncture technique.",
-    imageUrl: "/placeholders/pharmacopuncture.svg",
-    order: 2,
-    principleBlocks: [
-      {
-        title: "Combining Herbal and Acupuncture Effects",
-        body: "Pharmacopuncture delivers a purified, concentrated herbal extract directly into acupuncture points, aiming to combine the meridian-based effects of acupuncture with the pharmacological action of herbal medicine in a single, targeted treatment. [DRAFT — general Korean medicine background, please review and replace with your clinic's own description]",
-      },
-    ],
-    processSteps: [
-      { title: "Consultation", body: "Your practitioner reviews your condition and determines whether pharmacopuncture is appropriate." },
-      { title: "Extract Selection", body: "A specific herbal extract and injection points are chosen for your condition." },
-      { title: "Injection", body: "The extract is injected in small amounts at the selected acupuncture points." },
-      { title: "Aftercare", body: "You receive guidance on activity and any follow-up sessions." },
-    ],
-    compareLeftTitle: "Pharmacopuncture",
-    compareRightTitle: "Herbal Medicine (Oral)",
-    compareLeft: ["Delivered directly at acupuncture points", "Small, concentrated dose", "Often used for localized musculoskeletal pain"],
-    compareRight: ["Taken orally over a course of time", "Addresses whole-body internal balance", "Formula adjusted over follow-up visits"],
-    faq: [
-      { question: "Is pharmacopuncture safe?", answer: "[DRAFT — please provide your clinic's sourcing, sterility, and safety information]" },
+      { question: "Is acupuncture painful?", answer: "Most patients feel only a light sensation, such as a slight pinch or pressure, at the insertion point — not sharp pain. Many find the sessions relaxing." },
+      { question: "How many sessions will I need?", answer: "This varies by condition and severity; your practitioner will recommend a treatment plan and number of sessions during your consultation." },
+      { question: "Are the needles safe and sterile?", answer: "Yes. We use sterile, single-use disposable needles for every patient and discard them after each treatment." },
+      { question: "Can I receive acupuncture as a short-term visitor to Korea?", answer: "Yes. Acupuncture is available to international visitors — no long-term residency is required, and English-speaking staff can assist with your visit." },
     ],
   },
   {
     slug: "chuna-manual-therapy",
     name: "Chuna Manual Therapy",
-    summary:
-      "A hands-on therapy that corrects posture and joint alignment.",
-    imageUrl: "/placeholders/chuna.svg",
-    order: 3,
+    summary: "A hands-on therapy for muscle and tendon recovery and pain relief, adjusted to each patient's symptoms.",
+    imageUrl: "/uploads/chuna.jpg",
+    order: 2,
     principleBlocks: [
       {
-        title: "Correcting Alignment",
-        body: "Chuna manual therapy uses hands-on manipulation to help correct misalignments in the spine and joints. [DRAFT — please review]",
+        title: "How It Works",
+        body: "A treatment for muscle and tendon recovery and pain relief. The therapy is adjusted based on each patient's symptoms to minimize bodily strain.",
       },
     ],
-    processSteps: [
-      { title: "Postural Assessment", body: "Your practitioner evaluates posture and joint alignment." },
-      { title: "Manual Adjustment", body: "Targeted manipulation is applied to affected areas." },
-      { title: "Home Guidance", body: "You receive advice on posture and exercises to support recovery." },
-    ],
+    processSteps: [],
     compareLeftTitle: "Chuna Manual Therapy",
     compareRightTitle: "Traction Therapy",
     compareLeft: ["Hands-on joint manipulation", "Focus on structural alignment", "Often combined with other therapies"],
     compareRight: ["Mechanical, device-assisted stretching", "Focus on decompressing the spine", "Passive treatment"],
     faq: [
-      { question: "Is Chuna therapy safe for everyone?", answer: "[DRAFT — please provide contraindications from your clinical team]" },
-    ],
-  },
-  {
-    slug: "cupping-therapy",
-    name: "Cupping Therapy",
-    summary:
-      "Suction cups are applied to the skin to promote circulation and relieve muscle tension.",
-    imageUrl: "/placeholders/cupping.svg",
-    order: 4,
-    principleBlocks: [
-      {
-        title: "Improving Circulation",
-        body: "Cupping creates localized suction on the skin, which is believed to draw blood flow to the area and help release muscle tension. [DRAFT — please review]",
-      },
-    ],
-    processSteps: [
-      { title: "Assessment", body: "Areas of tension are identified." },
-      { title: "Cup Placement", body: "Cups are applied to targeted areas for a set duration." },
-      { title: "Aftercare", body: "Guidance is provided on skin care following treatment." },
-    ],
-    compareLeftTitle: "Cupping Therapy",
-    compareRightTitle: "Manual Therapy (Chuna)",
-    compareLeft: ["Uses suction to relieve muscle tension", "Passive treatment", "May leave temporary marks"],
-    compareRight: ["Uses hands-on manipulation", "Active joint and posture correction", "No skin marks"],
-    faq: [
-      { question: "Does cupping leave marks?", answer: "[DRAFT — please provide your clinic's own guidance]" },
+      { question: "Is Chuna therapy safe for everyone?", answer: "Chuna therapy is generally safe and gentle, but it may not be suitable for people with acute fractures or certain spinal conditions, or during pregnancy. Your practitioner will review your health history before treatment to confirm it is appropriate for you." },
+      { question: "Is Chuna similar to chiropractic care?", answer: "They share some similarities, as both involve manual joint and spinal manipulation. Chuna is a traditional Korean medicine technique that also takes muscles, tendons, and overall body balance into account as part of treatment." },
+      { question: "Do I need to remove clothing for this treatment?", answer: "No. Chuna therapy is typically performed while you wear comfortable, loose-fitting clothing." },
     ],
   },
   {
     slug: "herbal-medicine",
     name: "Herbal Medicine",
-    summary:
-      "Customized herbal formulas support the body's natural healing processes.",
-    imageUrl: "/placeholders/herbal.svg",
-    order: 5,
+    summary: "Customized herbal formulas relieve inflammation and edema and delay the degenerative process to prevent symptoms from worsening.",
+    imageUrl: "/uploads/herbal-medicine.jpg",
+    order: 3,
     principleBlocks: [
       {
-        title: "Personalized Formulas",
-        body: "Herbal medicine in the Korean medicine tradition uses combinations of natural ingredients selected to match an individual's constitution and condition. [DRAFT — please review and replace with your clinic's own description]",
+        title: "How It Works",
+        body: "A treatment that can reduce pain by relieving inflammation and edema in the nerves. It also delays the degenerative process to prevent the symptoms from worsening.",
+      },
+      {
+        title: "Safety & Quality",
+        body: "Herbal ingredients undergo a processing method called po-je — such as roasting or steaming — to reduce toxicity and adjust their therapeutic properties before use. A large-scale domestic observational study on herbal-medicine-related liver injury found that 6 out of 1,000 patients (0.6%) experienced liver injury, and this was found to be largely unrelated to the inherent toxicity of the herbal medicine itself. For mineral-based ingredients, attention is paid to heavy metal content; for animal-based ingredients, attention is paid to toxicity and CITES (endangered species) regulations.",
+      },
+      {
+        title: "Side Effects and Precautions",
+        body: "Depending on individual constitution and dosage, side effects such as digestive discomfort, allergic reactions, or neurological symptoms may occasionally occur.",
       },
     ],
-    processSteps: [
-      { title: "Diagnosis", body: "Your practitioner assesses your constitution and symptoms." },
-      { title: "Formula Preparation", body: "A tailored herbal formula is prepared for your specific needs." },
-      { title: "Follow-up", body: "Your response to the formula is monitored and adjusted over time." },
-    ],
+    processSteps: [],
     compareLeftTitle: "Herbal Medicine",
     compareRightTitle: "Pharmacopuncture",
-    compareLeft: ["Taken orally over a course of time", "Addresses internal balance", "Formula adjusted over follow-up visits"],
+    compareLeft: ["Taken orally over a period of time", "Addresses internal balance", "Formula adjusted during follow-up visits"],
     compareRight: ["Injected directly at acupuncture points", "Concentrated, localized dose", "Often used alongside herbal medicine"],
     faq: [
-      { question: "Are the herbs safe?", answer: "[DRAFT — please provide your clinic's sourcing and safety information]" },
+      { question: "Are the herbs safe?", answer: "Herbal formulas are prepared individually for each patient based on a practitioner's diagnosis, using quality-checked ingredients. Please inform your practitioner of any allergies, current medications, or health conditions so your formula can be safely tailored to you." },
+      { question: "Will herbal medicine interact with medications I'm already taking?", answer: "Please share a full list of medications and supplements you're currently taking during your consultation, so your practitioner can check for potential interactions before prescribing." },
+      { question: "Can herbal medicine be shipped or taken with me after I leave Korea?", answer: "In many cases, herbal formulas can be prepared for you to take with you. Please check with our staff about packaging and any customs considerations for your home country." },
+    ],
+  },
+  {
+    slug: "pharmacopuncture",
+    name: "Pharmacopuncture (Herbal Acupuncture)",
+    summary: "Refined herbal extracts injected directly into the painful area take effect quickly, even with small doses.",
+    imageUrl: "/uploads/herbal-acupuncture.jpg",
+    order: 4,
+    principleBlocks: [
+      {
+        title: "How It Works",
+        body: "A treatment in which refined herbal extracts are injected directly into the painful area. Pharmacopuncture takes effect quickly even with small doses and is also helpful for patients who cannot take herbal medicine orally due to indigestion.",
+      },
+      {
+        title: "Safety & Quality",
+        body: "Pharmacopuncture solutions are made from herbal medicine extracts. A product containing separately regulated pharmaceutical ingredients without proper approval cannot be called pharmacopuncture. Preparation facilities are subject to the Ministry of Health and Welfare's evaluation and certification system; for pharmacopuncture preparation facilities, the assessment also covers sterile equipment and related items.",
+      },
+    ],
+    processSteps: [],
+    compareLeftTitle: "",
+    compareRightTitle: "",
+    compareLeft: [],
+    compareRight: [],
+    faq: [
+      { question: "What is pharmacopuncture solution made from?", answer: "It is made from herbal medicine extracts. Any solution that includes separately regulated pharmaceutical ingredients without proper approval is not genuine pharmacopuncture." },
+      { question: "How is the safety of the preparation process ensured?", answer: "Preparation facilities are certified under the Ministry of Health and Welfare's evaluation system, which includes assessment of equipment used for sterile pharmacopuncture preparation." },
+      { question: "Can I ask which solution is being used and where it was prepared?", answer: "Yes. You are welcome to ask your practitioner during your consultation which pharmacopuncture solution is used and where it was prepared." },
     ],
   },
   {
     slug: "traction-therapy",
     name: "Traction Therapy",
-    summary:
-      "Gentle mechanical stretching relieves pressure on the spine and supports disc and nerve recovery.",
-    imageUrl: "/placeholders/traction.svg",
-    order: 6,
+    summary: "Suspension devices relieve pressure on spinal discs by applying and releasing controlled traction to the spinal joints.",
+    imageUrl: "/uploads/extension-therapy.jpg",
+    order: 5,
     principleBlocks: [
       {
-        title: "Decompressing the Spine",
-        body: "Traction therapy applies a controlled, gentle pulling force to the spine, aiming to create space between vertebrae, reduce pressure on discs and nerves, and ease muscle tension around the spine. [DRAFT — general background, please review and replace with your clinic's own description]",
+        title: "How It Works",
+        body: "Suspension devices relieve pressure on spinal discs by applying traction to the spinal joints at a regular intensity, then releasing it. The treatment is effective for spinal disc disorders or stenosis.",
       },
     ],
-    processSteps: [
-      { title: "Assessment", body: "Your practitioner evaluates your spinal condition and symptoms." },
-      { title: "Setup", body: "You are positioned comfortably on the traction device." },
-      { title: "Traction Session", body: "A controlled, gradual pulling force is applied for a set period." },
-      { title: "Aftercare", body: "You receive guidance on posture and activity following treatment." },
-    ],
+    processSteps: [],
     compareLeftTitle: "Traction Therapy",
     compareRightTitle: "Chuna Manual Therapy",
     compareLeft: ["Mechanical, device-assisted stretching", "Consistent, controlled force", "Passive treatment"],
     compareRight: ["Hands-on manipulation by a practitioner", "Targets specific joint misalignments", "Active, technique-based adjustment"],
     faq: [
-      { question: "Is traction therapy safe for herniated discs?", answer: "[DRAFT — please provide guidance on suitable conditions and contraindications]" },
+      { question: "Is traction therapy safe for herniated discs?", answer: "Traction therapy is commonly used for disc-related conditions and is generally well tolerated, but it may not be suitable for certain severe or unstable spinal conditions. Your practitioner will assess your condition before beginning treatment." },
+      { question: "Does the treatment hurt?", answer: "No. The pulling force is gentle and gradual, and most patients find the sessions comfortable and even relaxing." },
+      { question: "How long is each session?", answer: "Sessions are typically brief. Your practitioner will confirm the exact duration and recommended frequency based on your condition." },
+    ],
+  },
+  {
+    slug: "electronic-moxibustion-therapy",
+    name: "Electronic Moxibustion Therapy",
+    summary: "An electronic heating device delivers steady, controlled warmth to acupuncture points without smoke or an open flame.",
+    imageUrl: "/uploads/electronic-moxibustion.jpg",
+    order: 6,
+    principleBlocks: [
+      {
+        title: "How It Works",
+        body: "An electronic heating device delivers steady, controlled warmth to acupuncture points, similar in principle to traditional moxibustion but without smoke or an open flame. The heat is thought to improve local circulation and relax surrounding muscles.",
+      },
+    ],
+    processSteps: [],
+    compareLeftTitle: "Electronic Moxibustion",
+    compareRightTitle: "Traditional Moxibustion",
+    compareLeft: ["Controlled, adjustable heat via an electronic device", "No smoke or open flame", "Consistent, precise temperature control"],
+    compareRight: ["Heat from burning moxa (mugwort)", "Produces smoke and herbal aroma", "Longstanding traditional technique"],
+    faq: [
+      { question: "Is electronic moxibustion safe?", answer: "Yes. Because the heat is generated electronically and the temperature is controlled and adjustable, treatment is designed to be comfortable and safe, without the risk of burns or smoke associated with traditional moxibustion." },
+      { question: "Does it smell like traditional moxibustion?", answer: "No. Because there is no burning involved, electronic moxibustion produces no smoke or herbal smell, making it a comfortable option for patients sensitive to smoke." },
+      { question: "Is this available as a stand-alone treatment?", answer: "Electronic moxibustion is often combined with acupuncture or other treatments as part of a broader plan, but your practitioner can advise on the best approach for your specific needs." },
     ],
   },
 ];
+
+const REMOVED_TREATMENT_SLUGS = ["cupping-therapy"];
 
 const clinics = [
   {
     slug: "non-surgical-spine-joint-treatment",
     name: "Non-Surgical Spine & Joint Treatment",
-    summary:
-      "Korean medicine therapies for spine and joint conditions that aim to relieve pain without surgery.",
-    imageUrl: "/placeholders/clinic-spine-joint.svg",
+    summary: "Non-surgical treatments treat the root cause of pain and help restore muscle strength and function.",
+    imageUrl: "/uploads/clinic-spine-joint.jpg",
     order: 1,
     principleBlocks: [
       {
-        title: "Addressing the Root Cause",
-        body: "This clinic combines acupuncture, Chuna manual therapy, and herbal medicine to address spine and joint conditions such as disc problems, spinal stenosis, and joint pain, aiming to relieve pain and improve function without surgery. [DRAFT — please replace with your hospital's own clinical approach]",
+        title: "Conditions and Symptoms Treated",
+        body: "Conditions and symptoms treated include lumbar disc herniation, cervical disc herniation, temporomandibular joint (TMJ) disorders, frozen shoulder, sports injuries, plantar fasciitis, and more.",
+      },
+      {
+        title: "Our Approach",
+        body: "Through non-surgical Korean medicine treatments for conditions such as lumbar disc herniation, cervical disc herniation, temporomandibular joint disorders, frozen shoulder, and sports injuries, we treat the root cause of pain and help restore muscle strength and function so patients can return to daily life.",
       },
     ],
-    processSteps: [
-      { title: "Diagnostic Consultation", body: "Your practitioner reviews your symptoms, imaging (if available), and health history." },
-      { title: "Treatment Plan", body: "A combined treatment plan is designed using acupuncture, manual therapy, and/or herbal medicine." },
-      { title: "Ongoing Care", body: "Progress is monitored and the plan adjusted over a course of visits." },
-    ],
+    processSteps: [],
     compareLeftTitle: "Non-Surgical Approach",
     compareRightTitle: "Surgical Approach",
     compareLeft: ["No incision or hospitalization required", "Gradual, cumulative improvement", "Lower procedural risk"],
     compareRight: ["May offer faster structural correction", "Requires recovery and hospitalization", "Reserved for severe or urgent cases"],
     faq: [
-      { question: "Is this suitable for herniated discs?", answer: "[DRAFT — please provide guidance on suitable conditions and contraindications]" },
-    ],
-  },
-  {
-    slug: "post-surgical-rehabilitation",
-    name: "Post-Surgical Rehabilitation",
-    summary:
-      "Recovery-focused Korean medicine care to support healing and restore function after surgery.",
-    imageUrl: "/placeholders/clinic-rehab.svg",
-    order: 2,
-    principleBlocks: [
-      {
-        title: "Supporting Recovery",
-        body: "After surgery, this clinic uses acupuncture, herbal medicine, and rehabilitative exercise guidance to help reduce post-operative discomfort, support tissue healing, and restore strength and range of motion. [DRAFT — please replace with your hospital's own clinical approach]",
-      },
-    ],
-    processSteps: [
-      { title: "Post-Op Assessment", body: "Your practitioner reviews your surgical history and current recovery status." },
-      { title: "Recovery Plan", body: "A rehabilitation plan is designed alongside your surgical team's guidance." },
-      { title: "Functional Recovery", body: "Sessions focus on restoring mobility, strength, and reducing scar-related discomfort." },
-    ],
-    compareLeftTitle: "Rehabilitation Focus",
-    compareRightTitle: "Acute Surgical Care",
-    compareLeft: ["Focuses on functional recovery", "Complements post-op instructions", "Longer-term, gradual process"],
-    compareRight: ["Focuses on the surgical procedure itself", "Managed by the surgical team", "Immediate post-operative period"],
-    faq: [
-      { question: "When can I start after surgery?", answer: "[DRAFT — please provide guidance in coordination with referring surgeons]" },
-    ],
-  },
-  {
-    slug: "diet-weight-management",
-    name: "Diet & Weight Management",
-    summary:
-      "A Korean medicine approach to weight management combining herbal medicine, acupuncture, and lifestyle guidance.",
-    imageUrl: "/placeholders/clinic-diet.svg",
-    order: 3,
-    principleBlocks: [
-      {
-        title: "A Constitutional Approach",
-        body: "This clinic evaluates each patient's constitution and metabolic pattern to design a personalized combination of herbal medicine, acupuncture, and dietary guidance intended to support healthy weight management. [DRAFT — please replace with your hospital's own clinical approach]",
-      },
-    ],
-    processSteps: [
-      { title: "Initial Assessment", body: "Your practitioner evaluates your constitution, health history, and goals." },
-      { title: "Personalized Plan", body: "A herbal and lifestyle plan is created for your specific needs." },
-      { title: "Follow-up & Adjustment", body: "Progress is reviewed regularly and the plan adjusted as needed." },
-    ],
-    compareLeftTitle: "Korean Medicine Approach",
-    compareRightTitle: "General Diet Programs",
-    compareLeft: ["Personalized to individual constitution", "Combines herbal medicine and acupuncture", "Addresses underlying metabolic patterns"],
-    compareRight: ["Often standardized meal plans", "May not address individual constitution", "Typically diet/exercise only"],
-    faq: [
-      { question: "Are the herbal formulas safe for long-term use?", answer: "[DRAFT — please provide your clinic's sourcing and safety information]" },
-    ],
-  },
-  {
-    slug: "integrative-cancer-immunity-center",
-    name: "Integrative Cancer & Immunity Center",
-    summary:
-      "Supportive Korean medicine care for cancer patients, used alongside conventional treatment to support immunity and quality of life.",
-    imageUrl: "/placeholders/clinic-cancer.svg",
-    order: 4,
-    principleBlocks: [
-      {
-        title: "Supportive, Not Substitutive Care",
-        body: "This center offers Korean medicine therapies such as herbal medicine and acupuncture as a complement to conventional cancer treatment, with the aim of supporting immune function, easing treatment side effects, and improving quality of life. [DRAFT — please replace with your hospital's own clinical approach and referral policy]",
-      },
-    ],
-    processSteps: [
-      { title: "Coordinated Consultation", body: "Your practitioner reviews your diagnosis and current treatment plan, ideally in coordination with your oncology team." },
-      { title: "Supportive Care Plan", body: "A plan is designed to help manage side effects and support overall wellbeing." },
-      { title: "Ongoing Monitoring", body: "Care is adjusted throughout your treatment course." },
-    ],
-    compareLeftTitle: "Integrative Supportive Care",
-    compareRightTitle: "Conventional Treatment Alone",
-    compareLeft: ["Aims to ease side effects and support wellbeing", "Used alongside oncology care", "Individualized herbal and acupuncture support"],
-    compareRight: ["Directly targets the cancer itself", "Led by the oncology team", "Standard of care"],
-    faq: [
-      { question: "Can this replace my cancer treatment?", answer: "[DRAFT — please state clearly that this is supportive care only and does not replace conventional treatment]" },
+      { question: "Is this suitable for herniated discs?", answer: "Yes. Non-surgical treatments such as acupuncture, Chuna manual therapy, and pharmacopuncture are widely used for herniated discs, especially in mild to moderate cases. Your practitioner will review your symptoms and any imaging at your first visit to confirm whether this approach is right for you." },
+      { question: "How long does treatment typically take?", answer: "Recovery timelines vary by condition and severity. Most patients begin a course of regular visits and are reassessed periodically so the treatment plan can be adjusted as needed." },
+      { question: "Can international patients receive this treatment?", answer: "Yes. English- and Japanese-speaking staff are available to support international patients throughout consultation and treatment." },
     ],
   },
   {
     slug: "traffic-accident-aftereffects",
-    name: "Traffic Accident Aftereffects",
-    summary:
-      "Korean medicine care for pain, stiffness, and other symptoms following a traffic accident.",
-    imageUrl: "/placeholders/clinic-accident.svg",
-    order: 5,
+    name: "Aftereffects of Traffic Accidents",
+    summary: "Systematic treatment for neck and back pain, headaches, dizziness, and muscle damage following a traffic accident.",
+    imageUrl: "/uploads/clinic-traffic-accident.jpg",
+    order: 2,
     principleBlocks: [
       {
-        title: "Treating Whiplash and Soft-Tissue Injury",
-        body: "This clinic addresses common after-effects of traffic accidents such as whiplash, muscle stiffness, and joint pain using acupuncture, Chuna manual therapy, and herbal medicine, even when imaging shows no structural damage. [DRAFT — please replace with your hospital's own clinical approach]",
+        title: "Conditions and Symptoms Treated",
+        body: "Conditions and symptoms treated include neck and back pain, headache and dizziness, muscle and ligament damage, neurological symptoms, stress and anxiety symptoms, and more.",
+      },
+      {
+        title: "Our Approach",
+        body: "Various aftereffects such as neck and back pain, headaches, dizziness, and muscle damage that occur after a traffic accident are systematically treated according to each patient's individual symptoms.",
       },
     ],
-    processSteps: [
-      { title: "Injury Assessment", body: "Your practitioner reviews the accident details and your current symptoms." },
-      { title: "Treatment Plan", body: "A combined treatment plan is designed to relieve pain and restore mobility." },
-      { title: "Recovery Monitoring", body: "Progress is tracked over a course of visits." },
-    ],
+    processSteps: [],
     compareLeftTitle: "Korean Medicine Care",
     compareRightTitle: "Pain Medication Alone",
     compareLeft: ["Addresses muscle and joint function directly", "May reduce reliance on medication", "Individualized treatment plan"],
     compareRight: ["Manages pain symptoms only", "Does not address underlying tension", "Short-term relief"],
     faq: [
-      { question: "Is this covered by auto insurance?", answer: "[DRAFT — please provide your hospital's insurance and documentation process]" },
+      { question: "I don't have symptoms yet — should I still get checked?", answer: "Yes. Some aftereffects of a traffic accident, such as whiplash, can take a few days to appear. An early evaluation helps catch and treat these issues before they worsen." },
+      { question: "What if I was in an accident while traveling in Korea?", answer: "We can still evaluate and treat your symptoms. Please bring any documentation you have, such as a police report or insurance details, and our staff will help clarify next steps, with translation support where needed." },
     ],
   },
   {
-    slug: "stroke-aftereffects",
-    name: "Stroke Aftereffects",
-    summary:
-      "Rehabilitative Korean medicine care for patients recovering from stroke (jungpung) and its lasting effects.",
-    imageUrl: "/placeholders/clinic-stroke.svg",
+    slug: "post-surgical-rehabilitation",
+    name: "Post-Surgical Rehabilitation",
+    summary: "A customized rehabilitation program supports a rapid return to daily life after spinal or joint surgery.",
+    imageUrl: "/uploads/clinic-rehab.jpg",
+    order: 3,
+    principleBlocks: [
+      {
+        title: "Key Areas",
+        body: "Key areas include rehabilitation after spinal surgery, rehabilitation after joint surgery, rehabilitation after joint replacement surgery, and management of muscle strength and functional recovery.",
+      },
+      {
+        title: "Our Approach",
+        body: "To relieve pain and restore joint and muscle strength after spinal and joint surgery, we operate a customized rehabilitation program based on Korean medicine–Western medicine collaboration to support a rapid return to daily life.",
+      },
+    ],
+    processSteps: [],
+    compareLeftTitle: "Rehabilitation Focus",
+    compareRightTitle: "Acute Surgical Care",
+    compareLeft: ["Focuses on functional recovery", "Complements post-op instructions", "Longer-term, gradual process"],
+    compareRight: ["Focuses on the surgical procedure itself", "Managed by the surgical team", "Immediate post-operative period"],
+    faq: [
+      { question: "When can I start after surgery?", answer: "Timing depends on your surgery and your surgeon's recovery guidelines. In most cases, rehabilitation begins once your surgical team confirms it is safe to do so, and our practitioners coordinate with your referring surgeon where possible." },
+      { question: "Do I need a referral from my surgeon?", answer: "A referral is not required to book a consultation, but bringing your surgical records helps our practitioners design a program that safely complements your recovery." },
+      { question: "Can I continue this program if I had surgery outside Korea?", answer: "Yes. Please bring any available surgical records or a summary from your surgeon so our team can tailor your rehabilitation plan accordingly." },
+    ],
+  },
+  {
+    slug: "integrative-cancer-immunity-center",
+    name: "Anti-Cancer Immunotherapy",
+    summary: "An integrated immunity-management program helps restore immunity and physical strength weakened during cancer treatment.",
+    imageUrl: "/uploads/clinic-cancer.jpg",
+    order: 4,
+    principleBlocks: [
+      {
+        title: "Key Programs",
+        body: "Key programs include immunity management, personalized herbal medicine treatment, nutritional management, a program to restore physical strength, and a women-only immunotherapy ward.",
+      },
+      {
+        title: "Our Approach",
+        body: "We operate an integrated immunity-management program to help restore immunity and physical strength that have been weakened during cancer treatment.",
+      },
+    ],
+    processSteps: [],
+    compareLeftTitle: "Integrative Supportive Care",
+    compareRightTitle: "Conventional Treatment Alone",
+    compareLeft: ["Aims to ease side effects and support wellbeing", "Used alongside oncology care", "Individualized herbal and acupuncture support"],
+    compareRight: ["Directly targets the cancer itself", "Led by the oncology team", "Standard of care"],
+    faq: [
+      { question: "Can this replace my cancer treatment?", answer: "No. This supportive care program is designed to be used alongside your oncology treatment — it does not replace chemotherapy, radiation, surgery, or any treatment prescribed by your oncology team. We recommend continuing all treatments as directed by your oncologist and using our program to help manage side effects and support your overall strength." },
+      { question: "Will my oncologist be informed of this treatment?", answer: "We encourage coordination with your oncology team wherever possible and can provide a summary of your program upon request." },
+      { question: "Is the women-only ward available to international patients?", answer: "Yes. The women-only immunotherapy ward is available to all patients, including international visitors, offering a private and comfortable recovery environment." },
+    ],
+  },
+  {
+    slug: "brain-health-center",
+    name: "Brain Health Center",
+    summary: "An EEG-based NEUROMATCH system with more than 18 channels precisely analyzes brain function to support personalized care.",
+    imageUrl: "/uploads/clinic-brain-health.jpg",
+    order: 5,
+    principleBlocks: [
+      {
+        title: "Key Areas",
+        body: "Key areas include sleep disorders, cognitive function management, autonomic nervous system imbalance, concentration and memory management, headache and dizziness, and depression and anxiety management.",
+      },
+      {
+        title: "Our Approach",
+        body: "Using an EEG-based NEUROMATCH system with more than 18 channels, we precisely analyze brain function and systematically evaluate sleep, cognition, and autonomic nervous system conditions to provide personalized treatment and management programs.",
+      },
+    ],
+    processSteps: [],
+    compareLeftTitle: "",
+    compareRightTitle: "",
+    compareLeft: [],
+    compareRight: [],
+    faq: [
+      { question: "Is the EEG test painful or invasive?", answer: "No. The EEG test is completely non-invasive — sensors are placed on the scalp to measure brain activity, and the process is painless and typically takes only a short time." },
+      { question: "Who is this program recommended for?", answer: "It's well suited to patients experiencing sleep difficulties, concentration or memory concerns, or stress-related symptoms, as well as anyone who wants a detailed evaluation of their brain and nervous system health." },
+      { question: "Can international patients receive a report in English?", answer: "Yes. Results can be explained with the support of our English-speaking staff, and a summary report can be provided upon request." },
+    ],
+  },
+  {
+    slug: "diet-weight-management",
+    name: "Weight Management",
+    summary: "A traditional Korean medicine weight-management program, systematically managed by Korean medicine doctors.",
+    imageUrl: "/uploads/clinic-diet.jpg",
     order: 6,
     principleBlocks: [
       {
-        title: "Supporting Neurological Recovery",
-        body: "This clinic uses acupuncture, herbal medicine, and rehabilitative therapy to support patients recovering from stroke, aiming to improve motor function, speech, and overall quality of life during the recovery process. [DRAFT — please replace with your hospital's own clinical approach]",
+        title: "Key Focus Areas",
+        body: "Key focus areas include personalized constitutional assessment, herbal medicine-based weight management, chronic condition prevention (high blood pressure, diabetes), musculoskeletal health support (back and knee pain), and lifestyle and dietary guidance.",
+      },
+      {
+        title: "Our Approach",
+        body: "Overweight and obesity are major causes of chronic conditions such as high blood pressure and diabetes, as well as musculoskeletal issues like back and knee pain. Phil Hospital of Korean Medicine treats obesity through a traditional Korean medicine weight-management program, systematically managed by Korean medicine doctors.",
       },
     ],
-    processSteps: [
-      { title: "Neurological Assessment", body: "Your practitioner evaluates your current function and recovery stage." },
-      { title: "Rehabilitation Plan", body: "A combined acupuncture, herbal, and rehabilitative therapy plan is designed." },
-      { title: "Progress Review", body: "Function is reassessed regularly and the plan adjusted." },
-    ],
-    compareLeftTitle: "Integrative Rehabilitation",
-    compareRightTitle: "Standard Rehabilitation Alone",
-    compareLeft: ["Combines acupuncture and herbal medicine with rehab", "Individualized to recovery stage", "Addresses both function and overall vitality"],
-    compareRight: ["Physical/occupational therapy only", "Standardized protocols", "Focuses on motor function primarily"],
+    processSteps: [],
+    compareLeftTitle: "Korean Medicine Approach",
+    compareRightTitle: "General Diet Programs",
+    compareLeft: ["Tailored to each patient's constitution", "Combines herbal medicine and acupuncture", "Addresses underlying metabolic patterns"],
+    compareRight: ["Often based on standardized meal plans", "May not address individual constitution", "Typically limited to diet and exercise"],
     faq: [
-      { question: "How soon after a stroke can treatment begin?", answer: "[DRAFT — please provide guidance in coordination with the patient's medical team]" },
+      { question: "Are the herbal formulas safe for long-term use?", answer: "Each formula is prescribed and monitored by a Korean medicine doctor based on your individual constitution and health status, with regular follow-up visits to track your progress and adjust the plan as needed. Please share your full health history and any current medications during your consultation so your program can be safely tailored to you." },
+      { question: "How much weight can I expect to lose, and how long does the program take?", answer: "Results vary by individual constitution, health status, and lifestyle. Your practitioner will discuss a realistic goal and timeline based on your assessment at your first visit." },
+      { question: "Can I continue the herbal program after I return to my home country?", answer: "In many cases, herbal formulas can be prepared for you to take with you, with follow-up guidance provided remotely where possible. Please check with our staff about packaging and any customs considerations for your home country." },
     ],
   },
 ];
 
+const REMOVED_CLINIC_SLUGS = ["stroke-aftereffects"];
+
 const doctors = [
   {
-    name: "Dr. [Name]",
-    title: "Medical Director, Korean Medicine Doctor",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-1.svg",
+    name: "Dr. Kim Su-min",
+    title: "Director — Korean Medicine Internal Medicine Specialist",
+    bio: "Areas of Practice: Spinal disc herniation, degenerative spinal disease, degenerative joint disease, post-stroke sequelae, facial palsy, cardiovascular disease, blood pressure abnormalities, headache, digestive disorders (loss of appetite, indigestion, reflux esophagitis, irritable bowel syndrome), chronic fatigue, sports injuries, aftereffects of cancer treatment, cancer immunity management, aftereffects of traffic accidents, shingles",
+    photoUrl: "/uploads/doctor-kim-su-min.png",
     order: 1,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Spine & Joint Clinic",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-2.svg",
+    name: "Dr. Kim Jae-hak",
+    title: "Director — Korean Medicine Internal Medicine Specialist",
+    bio: "Areas of Practice: Spinal disc herniation, degenerative spinal disease, degenerative joint disease, post-stroke sequelae, Parkinson's disease, headache, dizziness, facial palsy, cardiovascular disease, blood pressure abnormalities, digestive disorders (loss of appetite, indigestion, reflux esophagitis, irritable bowel syndrome), chronic fatigue, sports injuries, aftereffects of traffic accidents, shingles, aftereffects of cancer treatment, cancer immunity management",
+    photoUrl: "/uploads/doctor-kim-jae-hak.png",
     order: 2,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Rehabilitation Clinic",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-3.svg",
+    name: "Dr. Hong Jeong-su",
+    title: "Director — Korean Medicine Internal Medicine Specialist",
+    bio: "Areas of Practice: Spinal disc herniation, degenerative spinal disease, degenerative joint disease, post-stroke sequelae, Parkinson's disease, headache, dizziness, facial palsy, cardiovascular disease, blood pressure abnormalities, digestive disorders (loss of appetite, indigestion, reflux esophagitis, irritable bowel syndrome), chronic fatigue, sports injuries, aftereffects of traffic accidents, shingles, aftereffects of cancer treatment, cancer immunity management",
+    photoUrl: "/uploads/doctor-hong-jung-soo.png",
     order: 3,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Diet & Weight Management Clinic",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-4.svg",
+    name: "Dr. Jang Hyun-jin",
+    title: "Director — Acupuncture & Moxibustion Medicine Specialist",
+    bio: "Areas of Practice: Spinal disc herniation, degenerative spinal disease, degenerative joint disease, aftereffects of spinal surgery, temporomandibular joint (TMJ) disorders, sports injuries, acute and chronic sprains, aftereffects of traffic accidents, tonic herbal medicine, obesity",
+    photoUrl: "/uploads/doctor-jang-hyun-jin.png",
     order: 4,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Integrative Cancer & Immunity Center",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-5.svg",
+    name: "Dr. Heo Yu-jin",
+    title: "Director — Acupuncture & Moxibustion Medicine Specialist",
+    bio: "Areas of Practice: Spinal disc herniation, degenerative spinal disease, degenerative joint disease, aftereffects of spinal surgery, temporomandibular joint (TMJ) disorders, sports injuries, acute and chronic sprains, aftereffects of traffic accidents, tonic herbal medicine, obesity",
+    photoUrl: "/uploads/doctor-heo-you-jin.png",
     order: 5,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Traffic Accident Clinic",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-6.svg",
+    name: "Dr. Lee Eon",
+    title: "Director — Neurosurgery Specialist",
+    bio: "Areas of Practice: Lumbar disc herniation, spinal stenosis, spinal compression fracture, spinal disorders, degenerative spinal disease, piriformis syndrome, cervical disc herniation, forward head posture (text neck syndrome), stroke and cerebrovascular disease, dementia and cognitive impairment, Parkinson's disease and movement disorders, headache and dizziness, sleep disorders, peripheral nerve and muscle disorders",
+    photoUrl: "/uploads/doctor-lee-eon.jpg",
     order: 6,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Stroke Rehabilitation Clinic",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-7.svg",
+    name: "Dr. Shim Jeong-im",
+    title: "Director — Family Medicine",
+    bio: "Areas of Practice: Diagnosis and treatment of musculoskeletal disorders, traffic accident care",
+    photoUrl: "/uploads/doctor-shim-jeong-im.png",
     order: 7,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Acupuncture & Pharmacopuncture",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-8.svg",
+    name: "Dr. Moon Seok-jun",
+    title: "Resident — Doctor of Korean Medicine",
+    bio: "Areas of Practice: Spinal disc herniation, degenerative joint disease, aftereffects of traffic accidents, joint sprains, obesity",
+    photoUrl: "/uploads/doctor-mun-seok-jun.png",
     order: 8,
   },
   {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Herbal Medicine",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-9.svg",
+    name: "Dr. Go Da-won",
+    title: "Resident — Doctor of Korean Medicine",
+    bio: "Areas of Practice: Spinal disc herniation, degenerative joint disease, aftereffects of traffic accidents, joint sprains, obesity",
+    photoUrl: "/uploads/doctor-ko-da-won.png",
     order: 9,
-  },
-  {
-    name: "Dr. [Name]",
-    title: "Korean Medicine Doctor — Chuna Manual Therapy",
-    bio: "[DRAFT — please provide biography, education, and specialties]",
-    photoUrl: "/placeholders/doctor-10.svg",
-    order: 10,
   },
 ];
 
@@ -472,52 +458,100 @@ async function main() {
     });
   }
 
+  const homeContentData = {
+    introEyebrow: "Introduction",
+    introTitle: "An Integrated Korean and Western Medicine Treatment System",
+    introBody:
+      "Phil Hospital of Korean Medicine offers an integrated treatment system that combines the strengths of Korean medicine and Western medicine. From spinal, joint, and pain conditions to cancer management, stress through EEG tests, sleep disorders, and mild cognitive impairment, we provide Korean medicine treatment.",
+    introImageUrl: "/uploads/intro-building.jpg",
+    highlights: JSON.stringify([
+      {
+        title: "Medical Staff Fluent in English and Japanese",
+        body: "Medical staff who can speak English and Japanese will treat patients directly.",
+      },
+      {
+        title: "Korean Medicine–Western Medicine Collaborative System",
+        body: "Through collaboration between Korean medicine doctors and medical doctors, we have built the most effective treatment system for each condition.",
+      },
+      {
+        title: "Advancing the Science of Korean Medicine",
+        body: "In collaboration with Kyung Hee University's department of herbal pharmacology, Phil Hospital of Korean Medicine is conducting clinical research on medicinal herbs, the basis of Korean medicine.",
+      },
+      {
+        title: "Korean Medicine at the Center of the Korean Wave (Hallyu)",
+        body: "By treating sports stars competing in Major League Baseball and on the LPGA and PGA Tours, Phil Hospital of Korean Medicine aims to be another pioneer of Hallyu in the field of Korean medicine.",
+      },
+    ]),
+    ctaTitle: "Ready to Learn More?",
+    ctaBody: "Reach out to our team with any questions about our treatments and services.",
+  };
   await prisma.homeContent.upsert({
     where: { id: 1 },
-    update: {},
-    create: {
-      id: 1,
-      introEyebrow: "Welcome",
-      introTitle: "Whole-Person Care, Rooted in Tradition",
-      introBody:
-        "[DRAFT — please replace with your hospital's own introduction. Describe your approach to care, your history, and what makes your hospital distinct.]",
-      introImageUrl: "/placeholders/intro.svg",
-      highlights: JSON.stringify([
-        { title: "Experienced Practitioners", body: "[DRAFT — describe your team's experience]" },
-        { title: "Personalized Treatment Plans", body: "[DRAFT — describe your approach to individualized care]" },
-        { title: "Comfortable Facilities", body: "[DRAFT — describe your hospital environment]" },
-      ]),
-      ctaTitle: "Ready to Learn More?",
-      ctaBody: "Reach out to our team with any questions about our treatments and services.",
-    },
+    update: homeContentData,
+    create: { id: 1, ...homeContentData },
   });
 
+  const aboutContentData = {
+    title: "An Integrated Korean and Western Medicine Treatment System",
+    body: "Phil Hospital of Korean Medicine offers an integrated treatment system that combines the strengths of Korean medicine and Western medicine. From spinal, joint, and pain conditions to cancer management, stress through EEG tests, sleep disorders, and mild cognitive impairment, we provide Korean medicine treatment.",
+    imageUrl: "/uploads/intro-building.jpg",
+    highlights: JSON.stringify([
+      {
+        title: "Medical Staff Fluent in English and Japanese",
+        body: "Medical staff who can speak English and Japanese will treat patients directly.",
+      },
+      {
+        title: "Korean Medicine–Western Medicine Collaborative System",
+        body: "Through collaboration between Korean medicine doctors and medical doctors, we have built the most effective treatment system for each condition.",
+      },
+    ]),
+    missionTitle: "Our Mission",
+    missionSubtitle: "Phil Hospital of Korean Medicine — A Global Standard",
+    missionBlocks: JSON.stringify([
+      {
+        title: "Advancing the Science of Korean Medicine",
+        body: "In collaboration with Kyung Hee University's department of herbal pharmacology, Phil Hospital of Korean Medicine is conducting clinical research on medicinal herbs, the basis of Korean medicine, in order to scientifically prove and standardize Korean medicine.",
+      },
+      {
+        title: "Popularization of Korean Medicine",
+        body: "By following the care standards for Korean National Health Insurance and private indemnity health insurance, Phil Hospital of Korean Medicine strives to minimize patients' economic burdens.",
+      },
+      {
+        title: "Globalization of Korean Medicine",
+        body: "By treating sports stars competing in Major League Baseball and on the LPGA and PGA Tours, Phil Hospital of Korean Medicine aims to be another pioneer of Hallyu in the field of Korean medicine.",
+      },
+    ]),
+    systemTitle: "Our System",
+    systemSubtitle: "A 365-Day Clinic System — Open Weekends and Holidays",
+    systemIntro: "With clinic doors always open, we support patients' return to daily life.",
+    systemBlocks: JSON.stringify([
+      {
+        title: "365 Days of Care",
+        body: "Our year-round clinic operates 365 days a year, without closure. Outpatient care and inpatient admission are available on weekends and public holidays, with regular treatment hours maintained according to each day's schedule (holidays included).",
+      },
+      {
+        title: "Weekday Night Clinic until 8 PM",
+        body: "To accommodate patients who need to visit after work, we operate a night clinic until 8:00 PM.",
+      },
+    ]),
+  };
   await prisma.aboutContent.upsert({
     where: { id: 1 },
-    update: {},
-    create: {
-      id: 1,
-      title: "About Phil Korean Medicine Hospital",
-      body: "[DRAFT — please replace with your hospital's history, mission, and values.]",
-      imageUrl: "/placeholders/about.svg",
-      missionBlocks: JSON.stringify([
-        { title: "Our Mission", body: "[DRAFT — please provide]" },
-        { title: "Our Approach", body: "[DRAFT — please provide]" },
-      ]),
-    },
+    update: aboutContentData,
+    create: { id: 1, ...aboutContentData },
   });
 
+  const greetingContentData = {
+    title: "Message From the Director",
+    body: "Korean medicine is a curative form of medicine. Korean medicine has proven its effectiveness over the years through extensive clinical experience and historical medical literature. Phil Hospital of Korean Medicine offers an integrated treatment system that combines the strengths of Korean medicine and Western medicine. From spinal, joint, and pain conditions to cancer management, stress through EEG tests, sleep disorders, and mild cognitive impairment, we provide Korean medicine treatment. Patients will receive comfortable care from our English- and Japanese-speaking medical staff! Phil Hospital of Korean Medicine will help “fill” your heart with happiness and help you “feel” at home as you share your thoughts on health care. Thank you.",
+    imageUrl: "/uploads/director.jpg",
+    directorName: "Dr. Yoon Je-pil",
+    directorTitle: "Hospital Director — Ph.D. in Korean Medicine, Board-Certified Specialist in Korean Rehabilitation Medicine",
+  };
   await prisma.greetingContent.upsert({
     where: { id: 1 },
-    update: {},
-    create: {
-      id: 1,
-      title: "A Message From Our Medical Director",
-      body: "[DRAFT — please replace with your medical director's own greeting message. This typically introduces the director, their philosophy of care, and a welcome to prospective patients.]",
-      imageUrl: "/placeholders/doctor-1.svg",
-      directorName: "Dr. [Name]",
-      directorTitle: "Medical Director",
-    },
+    update: greetingContentData,
+    create: { id: 1, ...greetingContentData },
   });
 
   await prisma.contactInfo.upsert({
@@ -534,54 +568,54 @@ async function main() {
     },
   });
 
+  await prisma.treatment.deleteMany({ where: { slug: { in: REMOVED_TREATMENT_SLUGS } } });
   for (const treatment of treatments) {
+    const data = {
+      name: treatment.name,
+      summary: treatment.summary,
+      imageUrl: treatment.imageUrl,
+      order: treatment.order,
+      principleBlocks: JSON.stringify(treatment.principleBlocks),
+      processSteps: JSON.stringify(treatment.processSteps),
+      compareLeftTitle: treatment.compareLeftTitle,
+      compareRightTitle: treatment.compareRightTitle,
+      compareLeft: JSON.stringify(treatment.compareLeft),
+      compareRight: JSON.stringify(treatment.compareRight),
+      faq: JSON.stringify(treatment.faq),
+    };
     await prisma.treatment.upsert({
       where: { slug: treatment.slug },
-      update: {},
-      create: {
-        slug: treatment.slug,
-        name: treatment.name,
-        summary: treatment.summary,
-        imageUrl: treatment.imageUrl,
-        order: treatment.order,
-        principleBlocks: JSON.stringify(treatment.principleBlocks),
-        processSteps: JSON.stringify(treatment.processSteps),
-        compareLeftTitle: treatment.compareLeftTitle,
-        compareRightTitle: treatment.compareRightTitle,
-        compareLeft: JSON.stringify(treatment.compareLeft),
-        compareRight: JSON.stringify(treatment.compareRight),
-        faq: JSON.stringify(treatment.faq),
-      },
+      update: data,
+      create: { slug: treatment.slug, ...data },
     });
   }
 
+  await prisma.clinic.deleteMany({ where: { slug: { in: REMOVED_CLINIC_SLUGS } } });
   for (const clinic of clinics) {
+    const data = {
+      name: clinic.name,
+      summary: clinic.summary,
+      imageUrl: clinic.imageUrl,
+      order: clinic.order,
+      principleBlocks: JSON.stringify(clinic.principleBlocks),
+      processSteps: JSON.stringify(clinic.processSteps),
+      compareLeftTitle: clinic.compareLeftTitle,
+      compareRightTitle: clinic.compareRightTitle,
+      compareLeft: JSON.stringify(clinic.compareLeft),
+      compareRight: JSON.stringify(clinic.compareRight),
+      faq: JSON.stringify(clinic.faq),
+    };
     await prisma.clinic.upsert({
       where: { slug: clinic.slug },
-      update: {},
-      create: {
-        slug: clinic.slug,
-        name: clinic.name,
-        summary: clinic.summary,
-        imageUrl: clinic.imageUrl,
-        order: clinic.order,
-        principleBlocks: JSON.stringify(clinic.principleBlocks),
-        processSteps: JSON.stringify(clinic.processSteps),
-        compareLeftTitle: clinic.compareLeftTitle,
-        compareRightTitle: clinic.compareRightTitle,
-        compareLeft: JSON.stringify(clinic.compareLeft),
-        compareRight: JSON.stringify(clinic.compareRight),
-        faq: JSON.stringify(clinic.faq),
-      },
+      update: data,
+      create: { slug: clinic.slug, ...data },
     });
   }
 
-  for (const doctor of doctors) {
-    const existing = await prisma.doctor.findFirst({ where: { name: doctor.name, title: doctor.title } });
-    if (!existing) {
-      await prisma.doctor.create({ data: doctor });
-    }
-  }
+  // Full replace: the medical staff roster is now the hospital's actual doctors,
+  // not placeholders, so stale placeholder rows are cleared first.
+  await prisma.doctor.deleteMany({});
+  await prisma.doctor.createMany({ data: doctors });
 
   console.log("Seed complete.");
 }
