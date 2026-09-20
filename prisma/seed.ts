@@ -45,7 +45,7 @@ const heroes = [
     slug: "contact",
     title: "Contact Us",
     subtitle: "Send us a message and our team will get back to you.",
-    imageUrls: ["/uploads/contact-hero.jpg"],
+    imageUrls: ["/uploads/contact-hero-2.png"],
   },
 ];
 

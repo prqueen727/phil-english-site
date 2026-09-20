@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import MobileNav from "./mobile-nav";
+import MobileNav, { type NavEntry } from "./mobile-nav";
 
 type DropdownItem = { href: string; label: string };
 
@@ -57,6 +57,25 @@ export default async function SiteHeader() {
     href: `/clinics/${c.slug}`,
     label: c.name,
   }));
+  const famTourItems: DropdownItem[] = [
+    { href: "/fam-tour/flow", label: "Fam Tour Flow" },
+    { href: "/fam-tour/cases", label: "Fam Tour & Outreach Cases" },
+    { href: "/fam-tour/wellness-tourism", label: "Daejeon Medical Wellness Tourism" },
+  ];
+  const treatmentPackageItems: DropdownItem[] = [
+    { href: "/treatment-packages", label: "Program" },
+    { href: "/treatment-packages/cream", label: "Phil Korean Medicine Cream" },
+  ];
+
+  const navEntries: NavEntry[] = [
+    { type: "dropdown", label: "About", items: aboutItems },
+    { type: "dropdown", label: "Treatments", items: treatmentItems, viewAllHref: "/treatments" },
+    { type: "dropdown", label: "Clinics", items: clinicItems, viewAllHref: "/clinics" },
+    { type: "dropdown", label: "Treatment Packages", items: treatmentPackageItems },
+    { type: "dropdown", label: "Fam Tour", items: famTourItems },
+    { type: "link", href: "/doctors", label: "Medical Staff" },
+    { type: "link", href: "/contact", label: "Contact" },
+  ];
 
   return (
     <header className="sticky top-0 z-40 border-b border-brand-100 bg-ivory-50/95 backdrop-blur">
@@ -76,18 +95,19 @@ export default async function SiteHeader() {
           )}
         </Link>
         <nav className="hidden items-center gap-8 md:flex">
-          <NavDropdown label="About" items={aboutItems} />
-          <NavDropdown label="Treatments" items={treatmentItems} viewAllHref="/treatments" />
-          <NavDropdown label="Clinics" items={clinicItems} viewAllHref="/clinics" />
-          <Link href="/cream" className="text-sm font-medium text-brand-700 transition-colors hover:text-brand-900">
-            Phil Korean Medicine Cream
-          </Link>
-          <Link href="/doctors" className="text-sm font-medium text-brand-700 transition-colors hover:text-brand-900">
-            Doctors
-          </Link>
-          <Link href="/contact" className="text-sm font-medium text-brand-700 transition-colors hover:text-brand-900">
-            Contact
-          </Link>
+          {navEntries.map((entry) =>
+            entry.type === "dropdown" ? (
+              <NavDropdown key={entry.label} label={entry.label} items={entry.items} viewAllHref={entry.viewAllHref} />
+            ) : (
+              <Link
+                key={entry.href}
+                href={entry.href}
+                className="text-sm font-medium text-brand-700 transition-colors hover:text-brand-900"
+              >
+                {entry.label}
+              </Link>
+            )
+          )}
         </nav>
         <div className="flex items-center gap-2">
           <Link
@@ -96,18 +116,7 @@ export default async function SiteHeader() {
           >
             Contact Us
           </Link>
-          <MobileNav
-            sections={[
-              { label: "About", items: aboutItems },
-              { label: "Treatments", items: treatmentItems, viewAllHref: "/treatments" },
-              { label: "Clinics", items: clinicItems, viewAllHref: "/clinics" },
-            ]}
-            simpleLinks={[
-              { href: "/cream", label: "Phil Korean Medicine Cream" },
-              { href: "/doctors", label: "Doctors" },
-              { href: "/contact", label: "Contact" },
-            ]}
-          />
+          <MobileNav entries={navEntries} />
         </div>
       </div>
     </header>

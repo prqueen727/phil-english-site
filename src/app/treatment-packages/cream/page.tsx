@@ -47,7 +47,6 @@ export default function CreamPage() {
         title="Phil Korean Medicine Cream"
         subtitle="Health, Captured in a Cream — Phil Korean Medicine Cream+ H/C"
         images={["/uploads/cream-hero-golf-sunset.jpg"]}
-        size="large"
       />
 
       <section className="mx-auto max-w-6xl px-6 py-20">

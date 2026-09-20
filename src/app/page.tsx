@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import PageHero from "@/components/page-hero";
+import PhotoPlaceholder from "@/components/photo-placeholder";
 import { parseBlocks, parseHeroSlides, parseStringList } from "@/lib/content-types";
+import { famTourCases } from "@/lib/fam-tour-cases";
 
 export default async function HomePage() {
   const [hero, home, treatments, clinics, contact, doctorCount] = await Promise.all([
@@ -66,6 +68,29 @@ export default async function HomePage() {
             ))}
           </div>
         )}
+      </section>
+
+      <section className="bg-brand-50 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div>
+              <h2 className="text-3xl font-medium text-brand-900">
+                Ministry of Health and Welfare — Registered Medical Institution for Foreign Patients
+              </h2>
+              <p className="mt-5 max-w-prose text-base leading-relaxed text-brand-700">
+                Phil Hospital of Korean Medicine is a medical institution certified by the
+                Ministry of Health and Welfare to host international patients, and we welcome
+                international fam tours.
+              </p>
+            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/uploads/famtour-flow-hero.jpg"
+              alt="Phil Hospital of Korean Medicine fam tour"
+              className="aspect-[4/3] w-full rounded-2xl object-cover"
+            />
+          </div>
+        </div>
       </section>
 
       {treatments.length > 0 && (
@@ -142,32 +167,38 @@ export default async function HomePage() {
         </section>
       )}
 
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/uploads/cream-product-h-c.png"
-            alt="Phil Korean Medicine Cream+ H and C tubes"
-            className="mx-auto w-full max-w-sm object-contain"
-          />
-          <div>
-            <p className="mb-3 text-sm font-medium uppercase tracking-wide text-gold-600">
-              Phil Korean Medicine Cream
-            </p>
-            <h2 className="text-3xl font-medium text-brand-900">
-              Health, Captured in a Cream
-            </h2>
-            <p className="mt-5 max-w-prose text-base leading-relaxed text-brand-700">
-              A Korean Medicine Cream made with real herbal extracts — developed with the direct
-              involvement of a Board-Certified Specialist in Korean Rehabilitation Medicine.
-              Available in a warming H (HOT) type and a cooling C (COOL) type.
-            </p>
-            <Link
-              href="/cream"
-              className="mt-6 inline-block rounded-full bg-brand-700 px-6 py-2.5 text-sm font-medium text-ivory-50 hover:bg-brand-800"
-            >
-              Learn More
+      <section className="bg-brand-50 py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex items-end justify-between">
+            <div>
+              <h2 className="text-3xl font-medium text-brand-900">Fam Tour & Outreach Cases</h2>
+              <p className="mt-2 max-w-prose text-sm leading-relaxed text-brand-700">
+                A running archive of fam tour and outreach programs Phil Hospital of Korean
+                Medicine has hosted or taken part in for international visitor groups.
+              </p>
+            </div>
+            <Link href="/fam-tour/cases" className="text-sm font-medium text-brand-700 hover:text-brand-900">
+              View all →
             </Link>
+          </div>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {famTourCases.slice(0, 3).map((item) => (
+              <div key={item.slug} className="overflow-hidden rounded-2xl border border-brand-100 bg-ivory-50">
+                {item.imageUrl ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={item.imageUrl} alt={item.title} className="aspect-square w-full object-cover" />
+                ) : (
+                  <PhotoPlaceholder aspect="aspect-square" />
+                )}
+                <div className="p-5">
+                  <p className="text-xs font-medium uppercase tracking-wide text-gold-600">{item.date}</p>
+                  <h3 className="mt-1 font-medium text-brand-900">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-brand-600 line-clamp-2">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

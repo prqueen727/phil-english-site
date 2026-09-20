@@ -4,9 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 
 type NavItem = { href: string; label: string };
-type NavSection = { label: string; items: NavItem[]; viewAllHref?: string };
+export type NavEntry =
+  | { type: "link"; href: string; label: string }
+  | { type: "dropdown"; label: string; items: NavItem[]; viewAllHref?: string };
 
-export default function MobileNav({ sections, simpleLinks }: { sections: NavSection[]; simpleLinks: NavItem[] }) {
+export default function MobileNav({ entries }: { entries: NavEntry[] }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -39,50 +41,49 @@ export default function MobileNav({ sections, simpleLinks }: { sections: NavSect
       {open && (
         <div className="absolute inset-x-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-brand-100 bg-ivory-50 shadow-lg">
           <nav className="mx-auto max-w-6xl px-6 py-4">
-            {sections.map((section) => (
-              <div key={section.label} className="border-b border-brand-100 py-3 last:border-b-0">
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-500">
-                  {section.label}
-                </p>
-                <ul className="space-y-2">
-                  {section.items.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        onClick={() => setOpen(false)}
-                        className="block text-sm text-brand-700 hover:text-brand-900"
-                      >
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                  {section.viewAllHref && (
-                    <li>
-                      <Link
-                        href={section.viewAllHref}
-                        onClick={() => setOpen(false)}
-                        className="block text-sm font-medium text-gold-600"
-                      >
-                        View All →
-                      </Link>
-                    </li>
-                  )}
-                </ul>
-              </div>
-            ))}
-            <ul className="space-y-3 py-3">
-              {simpleLinks.map((item) => (
-                <li key={item.href}>
+            {entries.map((entry) =>
+              entry.type === "dropdown" ? (
+                <div key={entry.label} className="border-b border-brand-100 py-3 last:border-b-0">
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-brand-500">
+                    {entry.label}
+                  </p>
+                  <ul className="space-y-2">
+                    {entry.items.map((item) => (
+                      <li key={item.href}>
+                        <Link
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="block text-sm text-brand-700 hover:text-brand-900"
+                        >
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                    {entry.viewAllHref && (
+                      <li>
+                        <Link
+                          href={entry.viewAllHref}
+                          onClick={() => setOpen(false)}
+                          className="block text-sm font-medium text-gold-600"
+                        >
+                          View All →
+                        </Link>
+                      </li>
+                    )}
+                  </ul>
+                </div>
+              ) : (
+                <div key={entry.href} className="border-b border-brand-100 py-3 last:border-b-0">
                   <Link
-                    href={item.href}
+                    href={entry.href}
                     onClick={() => setOpen(false)}
                     className="block text-sm font-medium text-brand-700 hover:text-brand-900"
                   >
-                    {item.label}
+                    {entry.label}
                   </Link>
-                </li>
-              ))}
-            </ul>
+                </div>
+              )
+            )}
           </nav>
         </div>
       )}
